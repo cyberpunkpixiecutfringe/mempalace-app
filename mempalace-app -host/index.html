@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MemPalace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- MEMPALACE CONSOLE -->
+  <div id="console">
+    <h1>MemPalace Console</h1>
+
+    <input id="searchInput" type="text" placeholder="Search MemPalace..." />
+
+    <!-- MEMPALACE BUTTON -->
+    <button id="open-creator" class="zone-btn">Wing / Room / Closet / Drawer</button>
+  </div>
+
+  <!-- 3D SCENE -->
+  <div id="scene-container"></div>
+
+  <!-- CREATOR OVERLAY -->
+  <div id="overlay" class="hidden">
+    <div class="overlay-content">
+
+      <!-- HEADER WITH FILE ATTACHMENTS -->
+      <div class="overlay-header">
+        <h2>Create / Edit Memory</h2>
+
+      <div class="file-upload">
+      <label>Attach Files (images, audios, videos, texts)</label>
+        <input id="field-files" type="file" accept="image/*,audio/*,video/*,.txt" multiple>
+       </div>
+      </div>
+
+
+      <!-- MAIN BODY -->
+      <div class="overlay-body">
+
+        <label>Wing (name)</label>
+        <input id="field-wing" type="text">
+
+        <label>Room (day/month/year)</label>
+        <input id="field-room" type="text">
+
+        <label>Closet (topic)</label>
+        <input id="field-closet" type="text">
+
+        <label>Drawer (content)</label>
+        <textarea id="field-drawer"></textarea>
+
+        <!-- THUMBNAIL STRIP -->
+        <div id="attachments-strip"></div>
+
+      </div>
+
+      <!-- FOOTER -->
+      <div class="overlay-footer">
+        <button id="save-overlay">Save</button>
+        <button id="close-overlay">Close</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PAGE NAVIGATION -->
+  <div id="page-nav"></div>
+
+  <!-- ------------------------------------------------------------
+       CORE LIBRARIES
+  ------------------------------------------------------------ -->
+  <script src="three.min.js"></script>
+  <script src="OrbitControls.js"></script>
+  <script src="crypto-js.min.js"></script>
+
+  <!-- ------------------------------------------------------------
+       MODULES
+       1. Background
+       2. Loader
+       3. Memory system
+       4. Attachments
+       5. Movement
+       6. Console
+       7. UI
+  ------------------------------------------------------------ -->
+  <script src="cluster.js"></script>
+  <script src="mempalace.load.js"></script>
+  <script src="mempalace.memory.js"></script>
+  <script src="mempalace.attachment.js"></script>
+  <script src="movement.js"></script>
+  <script src="console.js"></script>
+  <script src="ui.js"></script>
+
+  <!-- ------------------------------------------------------------
+       ENGINE
+  ------------------------------------------------------------ -->
+  <script src="app.js"></script>
+
+</body>
+</html>
