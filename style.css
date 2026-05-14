@@ -1,0 +1,410 @@
+/* ----------------------------------------------------------
+   GLOBAL — Floating Galaxy Theme
+---------------------------------------------------------- */
+body {
+  margin: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #02060a 0%, #000000 100%);
+  font-family: 'Orbitron', sans-serif;
+  color: #ffffff; /* ALL TEXT WHITE */
+  letter-spacing: 0.04em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ----------------------------------------------------------
+   FUTURISTIC GHOST SCROLLBARS
+---------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+    rgba(0,234,255,0.15) 0%,
+    rgba(0,234,255,0.45) 100%
+  );
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(0,234,255,0.35);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(0,234,255,0.45) 0%,
+    rgba(0,234,255,0.9) 100%
+  );
+}
+
+/* ----------------------------------------------------------
+   MEMPALACE CONSOLE — Floating Hologram Bar
+---------------------------------------------------------- */
+#console {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 14px;
+  background: rgba(0, 234, 255, 0.06);
+  border-bottom: 1px solid rgba(0, 234, 255, 0.25);
+  backdrop-filter: blur(10px);
+  z-index: 20;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 25px rgba(0, 234, 255, 0.25);
+}
+
+#console h1 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff; /* WHITE */
+  text-shadow: 0 0 14px #00ccff;
+  margin-right: 10px;
+}
+
+/* ----------------------------------------------------------
+   SEARCH INPUT
+---------------------------------------------------------- */
+#searchInput {
+  width: 260px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  color: #ffffff; /* WHITE */
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid #00ccff;
+  outline: none;
+  transition: 0.25s ease;
+  border-radius: 3px;
+}
+
+#searchInput:focus {
+  box-shadow: 0 0 14px #00ccff;
+}
+
+/* ----------------------------------------------------------
+   ZONE BUTTON
+---------------------------------------------------------- */
+.zone-btn {
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid #00ccff;
+  color: #ffffff; /* WHITE */
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  transition: 0.25s ease;
+  border-radius: 3px;
+  box-shadow: 0 0 12px rgba(0, 234, 255, 0.15);
+}
+
+.zone-btn:hover {
+  background: #00ccff;
+  color: #000;
+  box-shadow: 0 0 20px #00ccff;
+}
+
+/* ----------------------------------------------------------
+   3D SCENE CONTAINER
+---------------------------------------------------------- */
+#scene-container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* ----------------------------------------------------------
+   CREATOR OVERLAY — FULLSCREEN EXPANDED
+---------------------------------------------------------- */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  border: 1px solid #00ccff;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+  box-shadow: 0 0 25px #00ccff;
+  animation: panelFade 0.3s ease-out;
+  backdrop-filter: blur(12px);
+}
+
+#overlay:not(.hidden) {
+  display: flex !important;
+}
+
+.overlay-content {
+  width: 80vw;
+  max-width: 1100px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* ----------------------------------------------------------
+   HEADER — Title + File Upload
+---------------------------------------------------------- */
+.overlay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.overlay-header h2 {
+  font-size: 1.3rem;
+  color: #ffffff; /* WHITE */
+  text-shadow: 0 0 12px #00ccff;
+  margin: 0;
+}
+
+/* ----------------------------------------------------------
+   FILE UPLOAD — Pure Text Neon Button
+---------------------------------------------------------- */
+.file-upload input[type="file"] {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: transparent;
+  width: auto;
+}
+
+.file-upload input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.file-upload input[type="file"]::before {
+  content: "Choose files";
+  color: #ffffff; /* WHITE */
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 8px #00ccff;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: 0.25s ease;
+}
+
+.file-upload input[type="file"]:hover::before {
+  background: #00ccff;
+  color: #000;
+  box-shadow: 0 0 20px #00ccff;
+}
+
+/* ----------------------------------------------------------
+   BODY — Inputs + Drawer + Thumbnails
+---------------------------------------------------------- */
+.overlay-body {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+#overlay label {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: #ffffff; /* WHITE */
+}
+
+#field-wing,
+#field-room,
+#field-closet,
+#field-drawer {
+  width: 100%;
+  padding: 10px 14px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid #00ccff;
+  color: #ffffff; /* WHITE */
+  outline: none;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  transition: 0.25s ease;
+  box-sizing: border-box;
+}
+
+/* Drawer bottom strip */
+#field-drawer {
+  min-height: 260px;
+  resize: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #00ccff;
+  box-shadow: 0 4px 12px rgba(0, 234, 255, 0.25);
+  scrollbar-width: thin;
+  scrollbar-color: #00ccff transparent;
+}
+
+#field-drawer:focus {
+  box-shadow: 0 0 18px #00ccff;
+}
+
+/* Chrome scrollbar */
+#field-drawer::-webkit-scrollbar {
+  width: 8px;
+}
+
+#field-drawer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#field-drawer::-webkit-scrollbar-thumb {
+  background: #00ccff;
+  border-radius: 4px;
+  box-shadow: 0 0 10px #00ccff;
+}
+
+#field-drawer::-webkit-scrollbar-thumb:hover {
+  background: #00ffff;
+}
+
+/* ----------------------------------------------------------
+   THUMBNAIL STRIP
+---------------------------------------------------------- */
+#attachments-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 234, 255, 0.25);
+}
+
+#attachments-strip img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 1px solid #00ccff;
+  box-shadow: 0 0 10px rgba(0,234,255,0.4);
+  cursor: pointer;
+}
+
+#attachments-strip .delete-thumb {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 18px;
+  height: 18px;
+  background: #ff0044;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 6px #ff0044;
+}
+
+/* ----------------------------------------------------------
+   FOOTER — Save / Close
+---------------------------------------------------------- */
+.overlay-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+#save-overlay,
+#close-overlay {
+  padding: 10px 18px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid #00ccff;
+  color: #ffffff; /* WHITE */
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  transition: 0.25s ease;
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(0, 234, 255, 0.15);
+}
+
+#save-overlay:hover,
+#close-overlay:hover {
+  background: #00ccff;
+  color: #000;
+  box-shadow: 0 0 20px #00ccff;
+}
+
+/* ----------------------------------------------------------
+   FULLSCREEN CAROUSEL VIEWER
+---------------------------------------------------------- */
+#attachment-viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#attachment-viewer img {
+  max-width: 80vw;
+  max-height: 80vh;
+  border: 2px solid #00ccff;
+  box-shadow: 0 0 25px #00ccff;
+}
+
+#attachment-left,
+#attachment-right {
+  font-size: 48px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#attachment-left { left: 20px; }
+#attachment-right { right: 20px; }
+
+/* ----------------------------------------------------------
+   ANIMATION
+---------------------------------------------------------- */
+@keyframes panelFade {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ----------------------------------------------------------
+   RESPONSIVE
+---------------------------------------------------------- */
+@media (max-width: 600px) {
+  .overlay-content {
+    width: 94vw;
+    height: 92vh;
+    padding: 16px;
+  }
+
+  #field-drawer {
+    min-height: 180px;
+  }
+
+  #console {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
