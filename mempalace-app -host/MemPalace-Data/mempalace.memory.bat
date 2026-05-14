@@ -1,8 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
 
-echo Generating mempalace.memory.json...
-
 set OUTPUT=mempalace.memory.json
 
 echo [ > "%OUTPUT%"
