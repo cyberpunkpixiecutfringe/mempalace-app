@@ -1,7 +1,3 @@
-// mempalace.load.js
-// ------------------------------------------------------------
-// LOAD MEMORY FILES FROM MANIFEST (GitHub Pages compatible)
-// ------------------------------------------------------------
 const MemPalaceLoad = {
   palaceData: [],
   encryptionKey: "MemPalace-Galaxy-Secret-Key",
@@ -18,9 +14,6 @@ const MemPalaceLoad = {
     });
   },
 
-  // ------------------------------------------------------------
-  // LOAD ALL FILES FROM mempalace.memory.json
-  // ------------------------------------------------------------
   async loadAll() {
     try {
       const res = await fetch("MemPalace-Data/mempalace.memory.json");
@@ -45,9 +38,6 @@ const MemPalaceLoad = {
     }
   },
 
-  // ------------------------------------------------------------
-  // LOAD HYBRID JSON FILE
-  // ------------------------------------------------------------
   async loadHybridJSON(path) {
     try {
       const res = await fetch(path);
@@ -66,9 +56,6 @@ const MemPalaceLoad = {
     }
   },
 
-  // ------------------------------------------------------------
-  // PROCESS HYBRID JSON OBJECT
-  // ------------------------------------------------------------
   processHybridObject(obj) {
     if (!obj.files) obj.files = [];
 
